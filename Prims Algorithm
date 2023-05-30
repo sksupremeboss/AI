@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+    int V;
+    cout<<"Enter The No. Of Vertices Of Graph:";
+    cin>>V;
+   
+    int G[V][V];
+   
+    for(int i=0;i<V;i++)
+    {
+        for(int j=0;j<V;j++)
+        {
+            cin>>G[i][j];
+        }
+    }
+   
+    int edge;
+    int visit[V];
+   
+    //array to false
+    for(int i=0;i<V;i++)
+    {
+        visit[i]=0;
+    }
+   
+    edge=0;
+    visit[0]=true;
+   
+    int x;
+    int y;
+            int totalcost=0;
+
+   
+   
+    cout<<"Edge"<<":"<<"Weight"<<endl;
+    cout<<endl;
+   
+    while(edge < V-1)
+    {
+        int min=INT_MAX;
+        x=0;
+        y=0;
+        for(int i=0;i<V;i++)
+        {
+            if(visit[i])
+            {
+                for(int j=0;j<V;j++)
+                {
+                    if(!visit[j] and G[i][j])
+                    {
+                        if(min>G[i][j])
+                        {
+                            min=G[i][j];
+                            x=i;
+                            y=j;
+                        }
+                    }
+                }
+            }
+        }
+   
+   
+    cout<<x<<"----->"<<y<<":"<<G[x][y];
+    cout<<endl;
+    totalcost+=G[x][y];
+    visit[y]=true;
+    edge++;
+    }
+    cout<<"Cost is"<<totalcost<<endl;
+    return 0;
+}
