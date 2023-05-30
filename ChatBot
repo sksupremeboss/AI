@@ -1,0 +1,9 @@
+import nltk
+from nltk.chat.util import Chat,reflections
+
+def chat():
+  print("how can I hel you?")
+  chat=Chat(pairs)
+  chat.converse()
+
+chat()
